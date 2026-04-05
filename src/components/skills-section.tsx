@@ -20,7 +20,7 @@ export default function SkillsSection() {
   return (
     <section id="skills" className="py-24 sm:py-32 relative">
       {/* Background accent */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.02] to-transparent" />
+      <div className="absolute inset-0 bg-primary/[0.01]" />
 
       <div className="mx-auto max-w-6xl px-6 relative" ref={ref}>
         {/* Section header */}
@@ -88,7 +88,7 @@ export default function SkillsSection() {
                   ))}
                 </div>
 
-                {/* Decorative gradient */}
+                {/* Decorative accent */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               </motion.div>
             );

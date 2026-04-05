@@ -152,12 +152,9 @@ html {
   background: oklch(0.5 0.1 270);
 }
 
-/* Gradient text utility */
+/* Accent text utility */
 .gradient-text {
-  background: linear-gradient(135deg, oklch(0.7 0.18 270), oklch(0.65 0.2 300), oklch(0.7 0.15 230));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: oklch(0.7 0.18 270);
 }
 
 /* Grid background pattern */
@@ -182,36 +179,10 @@ html {
   border: 1px solid oklch(1 0 0 / 8%);
 }
 
-/* Animated gradient border */
-@keyframes gradient-border {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
+/* Animated border */
 .animated-border {
   position: relative;
-}
-
-.animated-border::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(
-    135deg,
-    oklch(0.7 0.18 270),
-    oklch(0.65 0.2 300),
-    oklch(0.7 0.15 230),
-    oklch(0.7 0.18 270)
-  );
-  background-size: 300% 300%;
-  animation: gradient-border 4s ease infinite;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  -webkit-mask-composite: xor;
-  z-index: -1;
+  border: 2px solid oklch(0.7 0.18 270 / 40%);
 }
 
 /* Floating animation */

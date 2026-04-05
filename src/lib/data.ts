@@ -108,6 +108,13 @@ export const skillCategories: SkillCategory[] = [
 
 export const projects: Project[] = [
   {
+    title: "Premier Retail Shop",
+    description:
+      "A high-performance, mobile-first e-commerce platform with a premium dark-mode admin dashboard. Features 3D glassmorphism UI, live search auto-suggest, QR code scanning for inventory management, bulk discount engine, and a full driver logistics dashboard.",
+    techStack: ["Laravel", "PHP", "MySQL", "Tailwind CSS", "JavaScript", "Vite"],
+    githubUrl: "https://github.com/Vithu2008-CS/Premier_Shop",
+  },
+  {
     title: "Waste Collection Route Optimization System",
     description:
       "A comprehensive route optimization system designed to streamline waste collection operations. Built with intelligent pathfinding algorithms and interactive mapping to improve efficiency and reduce operational costs for municipal waste management.",
@@ -133,9 +140,84 @@ export const education: Education[] = [
   },
   {
     institution: "IDM Achievers International Campus",
-
     degree: "Diploma in ICT & Computing (Level 4)",
     period: "2019 – 2020",
     grade: "Distinction",
   },
 ];
+
+// ─── Coursework ─────────────────────────────────────────────
+
+export interface CourseworkCategory {
+  title: string;
+  icon: string;
+  courses: string[];
+}
+
+export const coursework: CourseworkCategory[] = [
+  {
+    title: "Software Engineering & Development",
+    icon: "code",
+    courses: [
+      "Object Oriented Programming",
+      "Data Structures & Algorithms",
+      "Software Engineering",
+      "Rapid Application Development",
+      "Advanced Software Engineering (Laravel)",
+      "Compiler Theory & Programming Languages",
+    ],
+  },
+  {
+    title: "Web, Databases & UI",
+    icon: "layout",
+    courses: [
+      "Web Based Application Development",
+      "Database Management Systems",
+      "Advanced DBMS & Query Optimization",
+      "User Interface Design",
+      "System Analysis & Design",
+    ],
+  },
+  {
+    title: "AI, ML & Data Science",
+    icon: "brain",
+    courses: [
+      "Machine Learning",
+      "Image Processing & Computer Vision",
+      "Data Mining & Big Data Analytics",
+      "Intelligent Systems & Knowledge Bases",
+      "Logic Programming (Prolog)",
+    ],
+  },
+  {
+    title: "Systems & Architecture",
+    icon: "cpu",
+    courses: [
+      "Computer Architecture & Operating Systems",
+      "Parallel & Distributed Computing",
+      "Computer Systems & Assembly Language",
+      "Computer Graphics & Transformations",
+    ],
+  },
+  {
+    title: "Networking & Security",
+    icon: "shield",
+    courses: [
+      "Computer Networks (ISO/OSI, TCP/IP)",
+      "Information System Security & Cryptography",
+      "Systems & Network Administration",
+      "Cloud Computing & Virtualization",
+    ],
+  },
+  {
+    title: "Mathematics & Theory",
+    icon: "sigma",
+    courses: [
+      "Computing Mathematics (Logic & Proofs)",
+      "Theory of Computation (Automata)",
+      "Advanced Combinatorics & Recurrence",
+      "Research Methods",
+    ],
+  },
+];
+

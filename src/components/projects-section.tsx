@@ -46,14 +46,14 @@ export default function ProjectsSection() {
               className="group relative"
             >
               <div className="relative rounded-2xl glass overflow-hidden hover:glow transition-all duration-500">
-                {/* Gradient top accent */}
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+                {/* Top accent */}
+                <div className="absolute top-0 left-0 right-0 h-px bg-primary/20" />
 
                 <div className="p-6 sm:p-8 md:p-10">
                   <div className="flex flex-col lg:flex-row lg:items-start gap-8">
                     {/* Project preview */}
                     <div className="lg:w-2/5 flex-shrink-0">
-                      <div className="relative aspect-video rounded-xl overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5 border border-border/50">
+                      <div className="relative aspect-video rounded-xl overflow-hidden bg-primary/5 border border-border/50">
                         {/* Terminal-style preview */}
                         <div className="absolute inset-0 flex flex-col">
                           {/* Title bar */}
@@ -98,7 +98,7 @@ export default function ProjectsSection() {
                     <div className="lg:w-3/5 space-y-5">
                       <div className="flex items-start justify-between">
                         <div>
-                          <h3 className="text-xl sm:text-2xl font-bold text-foreground group-hover:gradient-text transition-all">
+                          <h3 className="text-xl sm:text-2xl font-bold text-foreground group-hover:text-primary transition-all">
                             {project.title}
                           </h3>
                         </div>

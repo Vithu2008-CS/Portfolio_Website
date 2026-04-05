@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { personalInfo } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Send, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 // Typing effect component
 function TypingEffect({ words }: { words: string[] }) {
@@ -56,7 +57,7 @@ export default function HeroSection() {
       {/* Background grid */}
       <div className="absolute inset-0 grid-pattern opacity-40" />
 
-      {/* Gradient orbs */}
+      {/* Background orbs */}
       <div className="absolute top-1/4 -left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
       <div
         className="absolute bottom-1/4 -right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float"
@@ -67,87 +68,121 @@ export default function HeroSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        {/* Status badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-sm text-muted-foreground mb-8"
-        >
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          Available for opportunities
-        </motion.div>
+      <div className="relative z-10 px-6 max-w-6xl mx-auto w-full">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+          {/* Text content */}
+          <div className="flex-1 text-center lg:text-left">
+            {/* Status badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-sm text-muted-foreground mb-8"
+            >
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              Available for opportunities
+            </motion.div>
 
-        {/* Name */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6"
-        >
-          <span className="block text-foreground">
-            {personalInfo.firstName}
-          </span>
-          <span className="block gradient-text">
-            {personalInfo.lastName}
-          </span>
-        </motion.h1>
+            {/* Name */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6"
+            >
+              <span className="block text-foreground">
+                {personalInfo.firstName}
+              </span>
+              <span className="block gradient-text">
+                {personalInfo.lastName}
+              </span>
+            </motion.h1>
 
-        {/* Dynamic subtitle */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex items-center justify-center gap-3 text-xl sm:text-2xl md:text-3xl font-light text-muted-foreground mb-4"
-        >
-          <ChevronRight className="w-5 h-5 text-primary" />
-          <TypingEffect words={personalInfo.subtitles} />
-        </motion.div>
+            {/* Dynamic subtitle */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex items-center justify-center lg:justify-start gap-3 text-xl sm:text-2xl md:text-3xl font-light text-muted-foreground mb-4"
+            >
+              <ChevronRight className="w-5 h-5 text-primary" />
+              <TypingEffect words={personalInfo.subtitles} />
+            </motion.div>
 
-        {/* Short tagline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto mb-10"
-        >
-          Building elegant, user-centered solutions that bridge design vision and production-ready code.
-        </motion.p>
+            {/* Short tagline */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-10"
+            >
+              Building elegant, user-centered solutions that bridge design vision and production-ready code.
+            </motion.p>
 
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <Button
-            size="lg"
-            className="px-8 py-6 text-base rounded-xl glow cursor-pointer"
-            onClick={() =>
-              document
-                .getElementById("projects")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+            >
+              <Button
+                size="lg"
+                className="px-8 py-6 text-base rounded-xl glow cursor-pointer"
+                onClick={() =>
+                  document
+                    .getElementById("projects")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
+                View My Work
+                <ArrowDown className="ml-2 w-4 h-4" />
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="px-8 py-6 text-base rounded-xl cursor-pointer"
+                onClick={() =>
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
+                Contact Me
+                <Send className="ml-2 w-4 h-4" />
+              </Button>
+            </motion.div>
+          </div>
+
+          {/* Profile Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex-shrink-0"
           >
-            View My Work
-            <ArrowDown className="ml-2 w-4 h-4" />
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="px-8 py-6 text-base rounded-xl cursor-pointer"
-            onClick={() =>
-              document
-                .getElementById("contact")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
-          >
-            Contact Me
-            <Send className="ml-2 w-4 h-4" />
-          </Button>
-        </motion.div>
+            <div className="relative">
+              {/* Animated ring */}
+              <div className="absolute -inset-3 rounded-full bg-primary/15 blur-md animate-pulse-glow" />
+              {/* Border */}
+              <div className="relative w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-full p-1 animated-border">
+                <div className="w-full h-full rounded-full overflow-hidden bg-background">
+                  <Image
+                    src="/profile.jpg"
+                    alt="Vithurshan Thangavel"
+                    width={288}
+                    height={288}
+                    className="w-full h-full object-cover object-top"
+                    priority
+                  />
+                </div>
+              </div>
+              {/* Decorative dots */}
+              <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-primary/60 animate-pulse" />
+              <div className="absolute -bottom-1 -left-1 w-3 h-3 rounded-full bg-primary/40 animate-pulse" style={{ animationDelay: "1s" }} />
+            </div>
+          </motion.div>
+        </div>
       </div>
 
       {/* Scroll indicator */}
