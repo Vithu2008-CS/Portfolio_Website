@@ -12,7 +12,6 @@ import {
   Mail,
   Phone,
   MapPin,
-  Heart,
   ArrowUp,
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
