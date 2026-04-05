@@ -12,9 +12,9 @@ export default function AboutSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const stats = [
-    { label: "Years Experience", value: "3+", icon: Sparkles },
-    { label: "Projects Completed", value: "10+", icon: GraduationCap },
-    { label: "Based in", value: "Sri Lanka", icon: MapPin },
+    { label: "Years Experience", value: "1+", icon: Sparkles },
+    { label: "Projects Completed", value: "5+", icon: GraduationCap },
+    { label: "Based in", value: "Batticaloa, Sri Lanka", icon: MapPin },
   ];
 
   return (
@@ -74,7 +74,7 @@ export default function AboutSection() {
               <div>
                 <span className="text-sm text-muted-foreground">Education</span>
                 <p className="text-sm font-medium text-foreground">
-                  BSc. Hons CS — Eastern University
+                  BSc. Hons CS — Eastern University SriLanka
                 </p>
               </div>
             </div>

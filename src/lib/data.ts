@@ -133,6 +133,7 @@ export const education: Education[] = [
   },
   {
     institution: "IDM Achievers International Campus",
+
     degree: "Diploma in ICT & Computing (Level 4)",
     period: "2019 – 2020",
     grade: "Distinction",
