@@ -243,8 +243,7 @@ export default function ContactFooter() {
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground flex items-center gap-1">
-              © {new Date().getFullYear()} {personalInfo.name}. Built with{" "}
-              <Heart className="w-3 h-3 text-red-500 fill-red-500" /> & Next.js
+              © {new Date().getFullYear()} {personalInfo.name}
             </p>
 
             {/* Social links */}
