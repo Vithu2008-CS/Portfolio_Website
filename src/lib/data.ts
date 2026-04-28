@@ -69,7 +69,7 @@ export const personalInfo: PersonalInfo = {
   github: "Vithu2008-CS",
   githubUrl: "https://github.com/Vithu2008-CS",
   about:
-    "I am a final-year BSc (Hons) Computer Science undergraduate passionate about UI/UX design and product thinking. I combine creative wireframing with technical logic, ensuring my solutions are user-centered and feasible for development. My background in building full-stack applications allows me to collaborate effectively with development teams, bridging the gap between design concepts and final code.",
+    "I am a final-year BSc (Hons) Computer Science undergraduate passionate about building impactful software and solving real-world problems. I combine creative thinking with strong technical fundamentals, ensuring my solutions are user-centered, scalable, and built with clean engineering practices. My experience across the full development lifecycle — from ideation and design to implementation and deployment — allows me to adapt quickly and contribute meaningfully to any team.",
 };
 
 // ─── Skills ─────────────────────────────────────────────────

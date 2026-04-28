@@ -49,10 +49,12 @@ export default function AboutSection() {
               {personalInfo.about}
             </p>
             <p className="text-lg leading-relaxed text-muted-foreground">
-              With expertise spanning from <span className="text-foreground font-medium">React.js frontends</span> to{" "}
-              <span className="text-foreground font-medium">Node.js backends</span>, I bring a unique perspective that combines{" "}
-              <span className="text-foreground font-medium">UI/UX design thinking</span> with solid engineering practices. I thrive on building
-              applications that are not only functional but truly delightful to use.
+              With a versatile skill set spanning{" "}
+              <span className="text-foreground font-medium">frontend development</span>,{" "}
+              <span className="text-foreground font-medium">backend systems</span>, and{" "}
+              <span className="text-foreground font-medium">UI/UX design</span>, I bring a well-rounded perspective to
+              every project. I'm driven by a passion for writing clean, maintainable code and creating
+              products that are not only functional but truly delightful to use.
             </p>
 
             <Separator className="my-8 bg-border/50" />
