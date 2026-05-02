@@ -56,18 +56,18 @@ export const navItems: NavItem[] = [
 // ─── Personal Info ──────────────────────────────────────────
 
 export const personalInfo: PersonalInfo = {
-  name: "Vithurshan Thangavel",
-  firstName: "Vithurshan",
-  lastName: "Thangavel",
-  title: "Software Engineer",
+  name: process.env.NEXT_PUBLIC_NAME ?? "Vithurshan Thangavel",
+  firstName: process.env.NEXT_PUBLIC_FIRST_NAME ?? "Vithurshan",
+  lastName: process.env.NEXT_PUBLIC_LAST_NAME ?? "Thangavel",
+  title: process.env.NEXT_PUBLIC_TITLE ?? "Software Engineer",
   subtitles: ["Full-Stack", "Frontend", "Backend", "UI/UX Design"],
-  email: "Vithurshanthangavel@gmail.com",
-  phone: "+94 70 539 4050",
-  location: "Batticaloa, Sri Lanka",
-  linkedin: "vithurshan20",
-  linkedinUrl: "https://www.linkedin.com/in/vithurshan20",
-  github: "Vithu2008-CS",
-  githubUrl: "https://github.com/Vithu2008-CS",
+  email: process.env.NEXT_PUBLIC_EMAIL ?? "Vithurshanthangavel@gmail.com",
+  phone: process.env.NEXT_PUBLIC_PHONE ?? "+94 70 539 4050",
+  location: process.env.NEXT_PUBLIC_LOCATION ?? "Batticaloa, Sri Lanka",
+  linkedin: process.env.NEXT_PUBLIC_LINKEDIN_USERNAME ?? "vithurshan20",
+  linkedinUrl: process.env.NEXT_PUBLIC_LINKEDIN_URL ?? "https://www.linkedin.com/in/vithurshan20",
+  github: process.env.NEXT_PUBLIC_GITHUB_USERNAME ?? "Vithu2008-CS",
+  githubUrl: process.env.NEXT_PUBLIC_GITHUB_URL ?? "https://github.com/Vithu2008-CS",
   about:
     "I am a final-year BSc (Hons) Computer Science undergraduate passionate about building impactful software and solving real-world problems. I combine creative thinking with strong technical fundamentals, ensuring my solutions are user-centered, scalable, and built with clean engineering practices. My experience across the full development lifecycle — from ideation and design to implementation and deployment — allows me to adapt quickly and contribute meaningfully to any team.",
 };

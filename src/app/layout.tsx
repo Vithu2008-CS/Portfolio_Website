@@ -16,8 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vithurshan Thangavel | Software Engineer Portfolio",
+  title: process.env.NEXT_PUBLIC_SITE_TITLE ?? "Vithurshan Thangavel | Software Engineer Portfolio",
   description:
+    process.env.NEXT_PUBLIC_SITE_DESCRIPTION ??
     "Full-Stack Software Engineer specializing in React, Node.js, and UI/UX Design. BSc (Hons) Computer Science undergraduate at Eastern University Sri Lanka.",
   keywords: [
     "Vithurshan Thangavel",
@@ -28,12 +29,14 @@ export const metadata: Metadata = {
     "Portfolio",
     "Sri Lanka",
   ],
-  authors: [{ name: "Vithurshan Thangavel" }],
+  authors: [{ name: process.env.NEXT_PUBLIC_NAME ?? "Vithurshan Thangavel" }],
   openGraph: {
-    title: "Vithurshan Thangavel | Software Engineer",
+    title: process.env.NEXT_PUBLIC_SITE_TITLE ?? "Vithurshan Thangavel | Software Engineer",
     description:
+      process.env.NEXT_PUBLIC_SITE_DESCRIPTION ??
       "Full-Stack Software Engineer specializing in React, Node.js, and UI/UX Design.",
     type: "website",
+    url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   },
 };
 

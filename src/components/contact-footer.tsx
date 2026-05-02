@@ -13,6 +13,9 @@ import {
   Phone,
   MapPin,
   ArrowUp,
+  Loader2,
+  CheckCircle2,
+  XCircle,
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 
@@ -24,20 +27,46 @@ export default function ContactFooter() {
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Construct mailto link
-    const subject = encodeURIComponent(
-      `Portfolio Contact from ${formState.name}`
-    );
-    const body = encodeURIComponent(
-      `Name: ${formState.name}\nEmail: ${formState.email}\n\n${formState.message}`
-    );
-    window.open(
-      `mailto:${personalInfo.email}?subject=${subject}&body=${body}`,
-      "_blank"
-    );
+    setStatus("loading");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formState),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to send message.");
+      }
+
+      setStatus("success");
+      setStatusMessage("Message sent successfully! I'll get back to you soon.");
+      setFormState({ name: "", email: "", message: "" });
+
+      // Reset status after 5 seconds
+      setTimeout(() => {
+        setStatus("idle");
+        setStatusMessage("");
+      }, 5000);
+    } catch (err) {
+      setStatus("error");
+      setStatusMessage(
+        err instanceof Error ? err.message : "Something went wrong. Please try again."
+      );
+
+      setTimeout(() => {
+        setStatus("idle");
+        setStatusMessage("");
+      }, 5000);
+    }
   };
 
   const contactLinks = [
@@ -168,11 +197,46 @@ export default function ContactFooter() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full h-12 rounded-xl glow cursor-pointer"
+                  className="w-full h-12 rounded-xl glow cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                  disabled={status === "loading"}
                 >
-                  Send Message
-                  <Send className="ml-2 w-4 h-4" />
+                  {status === "loading" ? (
+                    <>
+                      Sending...
+                      <Loader2 className="ml-2 w-4 h-4 animate-spin" />
+                    </>
+                  ) : status === "success" ? (
+                    <>
+                      Sent!
+                      <CheckCircle2 className="ml-2 w-4 h-4" />
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <Send className="ml-2 w-4 h-4" />
+                    </>
+                  )}
                 </Button>
+
+                {/* Status message */}
+                {statusMessage && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`flex items-center gap-2 p-3 rounded-xl text-sm ${
+                      status === "success"
+                        ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+                        : "bg-red-500/10 text-red-400 border border-red-500/20"
+                    }`}
+                  >
+                    {status === "success" ? (
+                      <CheckCircle2 className="w-4 h-4 shrink-0" />
+                    ) : (
+                      <XCircle className="w-4 h-4 shrink-0" />
+                    )}
+                    {statusMessage}
+                  </motion.div>
+                )}
               </form>
             </motion.div>
 
