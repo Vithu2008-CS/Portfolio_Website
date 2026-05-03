@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
 import { personalInfo } from "@/lib/data";
 import { Separator } from "@/components/ui/separator";
 import { MapPin, GraduationCap, Sparkles } from "lucide-react";
@@ -10,11 +11,12 @@ import { MapPin, GraduationCap, Sparkles } from "lucide-react";
 export default function AboutSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const shouldReduce = useReducedMotion();
 
   const stats = [
-    { label: "Years Experience", value: "1+", icon: Sparkles },
-    { label: "Projects Completed", value: "5+", icon: GraduationCap },
-    { label: "Based in", value: "Batticaloa, Sri Lanka", icon: MapPin },
+    { label: "Deployed Projects", value: "3", icon: GraduationCap },
+    { label: "CS Degree Progress", value: "4 yrs", icon: Sparkles },
+    { label: "Open to", value: "Sri Lanka + Remote", icon: MapPin },
   ];
 
   return (
@@ -22,7 +24,7 @@ export default function AboutSection() {
       <div className="mx-auto max-w-6xl px-6" ref={ref}>
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={shouldReduce ? false : { opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="mb-16"
@@ -47,14 +49,6 @@ export default function AboutSection() {
           >
             <p className="text-lg leading-relaxed text-muted-foreground">
               {personalInfo.about}
-            </p>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              With a versatile skill set spanning{" "}
-              <span className="text-foreground font-medium">frontend development</span>,{" "}
-              <span className="text-foreground font-medium">backend systems</span>, and{" "}
-              <span className="text-foreground font-medium">UI/UX design</span>, I bring a well-rounded perspective to
-              every project. I'm driven by a passion for writing clean, maintainable code and creating
-              products that are not only functional but truly delightful to use.
             </p>
 
             <Separator className="my-8 bg-border/50" />

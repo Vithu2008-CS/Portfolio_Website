@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
 import { skillCategories } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 import { Layout, Server, Code, Wrench } from "lucide-react";
@@ -16,6 +17,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 export default function SkillsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const shouldReduce = useReducedMotion();
 
   return (
     <section id="skills" className="py-24 sm:py-32 relative">
@@ -25,7 +27,7 @@ export default function SkillsSection() {
       <div className="mx-auto max-w-6xl px-6 relative" ref={ref}>
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={shouldReduce ? false : { opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"

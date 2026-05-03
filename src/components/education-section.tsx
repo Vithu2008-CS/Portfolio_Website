@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
 import { education, coursework } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -31,6 +32,7 @@ export default function EducationSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [showCoursework, setShowCoursework] = useState(false);
+  const shouldReduce = useReducedMotion();
 
   return (
     <section id="education" className="py-24 sm:py-32 relative">
@@ -40,7 +42,7 @@ export default function EducationSection() {
       <div className="mx-auto max-w-6xl px-6 relative" ref={ref}>
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={shouldReduce ? false : { opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"

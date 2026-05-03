@@ -1,22 +1,54 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
 import { projects } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
+import Image from "next/image";
+
+function ProjectImage({ title, slug }: { title: string; slug: string }) {
+  const [imgError, setImgError] = useState(false);
+  const initials = title
+    .split(" ")
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase();
+
+  if (imgError) {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center bg-primary/5">
+        <span className="text-5xl font-bold text-primary/20">{initials}</span>
+      </div>
+    );
+  }
+
+  return (
+    <Image
+      src={`/projects/${slug}.png`}
+      alt={`${title} screenshot`}
+      fill
+      className="object-cover"
+      priority={false}
+      onError={() => setImgError(true)}
+    />
+  );
+}
 
 export default function ProjectsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const shouldReduce = useReducedMotion();
 
   return (
     <section id="projects" className="py-24 sm:py-32 relative">
       <div className="mx-auto max-w-6xl px-6" ref={ref}>
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={shouldReduce ? false : { opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="mb-16"
@@ -54,43 +86,10 @@ export default function ProjectsSection() {
                     {/* Project preview */}
                     <div className="lg:w-2/5 flex-shrink-0">
                       <div className="relative aspect-video rounded-xl overflow-hidden bg-primary/5 border border-border/50">
-                        {/* Terminal-style preview */}
-                        <div className="absolute inset-0 flex flex-col">
-                          {/* Title bar */}
-                          <div className="flex items-center gap-2 px-4 py-3 border-b border-border/30">
-                            <div className="w-3 h-3 rounded-full bg-red-500/70" />
-                            <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
-                            <div className="w-3 h-3 rounded-full bg-green-500/70" />
-                            <span className="ml-2 text-xs text-muted-foreground font-mono">
-                              {project.title.toLowerCase().replace(/\s+/g, "-")}
-                            </span>
-                          </div>
-                          {/* Code preview */}
-                          <div className="flex-1 p-4 font-mono text-xs text-muted-foreground/70 space-y-1 overflow-hidden">
-                            <p>
-                              <span className="text-primary/80">const</span>{" "}
-                              <span className="text-emerald-400/80">project</span>{" "}
-                              <span className="text-primary/60">=</span> {"{"}
-                            </p>
-                            <p className="pl-4">
-                              <span className="text-yellow-400/70">name</span>:{" "}
-                              <span className="text-emerald-400/70">
-                                &quot;{project.title.split(" ").slice(0, 3).join(" ")}&quot;
-                              </span>,
-                            </p>
-                            <p className="pl-4">
-                              <span className="text-yellow-400/70">stack</span>:{" "}
-                              <span className="text-emerald-400/70">
-                                [{project.techStack.slice(0, 3).map(t => `"${t}"`).join(", ")}]
-                              </span>,
-                            </p>
-                            <p className="pl-4">
-                              <span className="text-yellow-400/70">status</span>:{" "}
-                              <span className="text-emerald-400/70">&quot;complete&quot;</span>
-                            </p>
-                            <p>{"}"}</p>
-                          </div>
-                        </div>
+                        <ProjectImage
+                          title={project.title}
+                          slug={project.title.toLowerCase().replace(/\s+/g, "-")}
+                        />
                       </div>
                     </div>
 

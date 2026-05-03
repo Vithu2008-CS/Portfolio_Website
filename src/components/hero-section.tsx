@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { personalInfo } from "@/lib/data";
+import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Send, ChevronRight } from "lucide-react";
 import Image from "next/image";
@@ -20,7 +21,9 @@ function TypingEffect({ words }: { words: string[] }) {
         if (!isDeleting) {
           setCurrentText(word.slice(0, currentText.length + 1));
           if (currentText === word) {
-            setTimeout(() => setIsDeleting(true), 2000);
+            if (words.length > 1) {
+              setTimeout(() => setIsDeleting(true), 2000);
+            }
           }
         } else {
           setCurrentText(word.slice(0, currentText.length - 1));
@@ -49,6 +52,8 @@ function TypingEffect({ words }: { words: string[] }) {
 }
 
 export default function HeroSection() {
+  const shouldReduce = useReducedMotion();
+
   return (
     <section
       id="hero"
@@ -72,7 +77,7 @@ export default function HeroSection() {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
           {/* Profile Image — shown first on mobile (order-first), right on desktop */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={shouldReduce ? false : { opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex-shrink-0 order-first lg:order-last"
@@ -145,7 +150,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-muted-foreground text-sm sm:text-base lg:text-lg max-w-xl mx-auto lg:mx-0 mb-8 lg:mb-10"
             >
-              Building elegant, user-centered solutions that bridge design vision and production-ready code.
+              {personalInfo.tagline}
             </motion.p>
 
             {/* CTA Buttons */}

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navItems, personalInfo } from "@/lib/data";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Download } from "lucide-react";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -97,8 +97,18 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Resume Button */}
-          <div className="hidden md:block">
+          {/* Desktop CTA buttons */}
+          <div className="hidden md:flex items-center gap-2">
+            <motion.a
+              href="/resume.pdf"
+              download
+              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-border hover:bg-accent transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Download className="w-4 h-4" />
+              Resume
+            </motion.a>
             <motion.a
               href="#contact"
               className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-primary text-primary-foreground hover:bg-primary/80 transition-colors"
@@ -147,6 +157,18 @@ export default function Navbar() {
                   {item.label}
                 </motion.button>
               ))}
+              <motion.a
+                href="/resume.pdf"
+                download
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navItems.length * 0.1 }}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-lg font-medium text-foreground py-3 px-6 rounded-lg hover:bg-accent transition-colors w-full text-center inline-flex items-center justify-center gap-2"
+              >
+                <Download className="w-5 h-5" />
+                Resume
+              </motion.a>
             </nav>
           </motion.div>
         )}

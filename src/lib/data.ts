@@ -6,6 +6,7 @@ export interface PersonalInfo {
   lastName: string;
   title: string;
   subtitles: string[];
+  tagline: string;
   email: string;
   phone: string;
   location: string;
@@ -60,7 +61,9 @@ export const personalInfo: PersonalInfo = {
   firstName: process.env.NEXT_PUBLIC_FIRST_NAME ?? "Vithurshan",
   lastName: process.env.NEXT_PUBLIC_LAST_NAME ?? "Thangavel",
   title: process.env.NEXT_PUBLIC_TITLE ?? "Software Engineer",
-  subtitles: ["Full-Stack", "Frontend", "Backend", "UI/UX Design"],
+  subtitles: ["Full-Stack Developer"],
+  tagline:
+    "Final-year Computer Science student who's shipped a full-stack e-commerce platform. Looking for my first full-time engineering role — Sri Lanka or remote.",
   email: process.env.NEXT_PUBLIC_EMAIL ?? "Vithurshanthangavel@gmail.com",
   phone: process.env.NEXT_PUBLIC_PHONE ?? "+94 70 539 4050",
   location: process.env.NEXT_PUBLIC_LOCATION ?? "Batticaloa, Sri Lanka",
@@ -69,7 +72,7 @@ export const personalInfo: PersonalInfo = {
   github: process.env.NEXT_PUBLIC_GITHUB_USERNAME ?? "Vithu2008-CS",
   githubUrl: process.env.NEXT_PUBLIC_GITHUB_URL ?? "https://github.com/Vithu2008-CS",
   about:
-    "I am a final-year BSc (Hons) Computer Science undergraduate passionate about building impactful software and solving real-world problems. I combine creative thinking with strong technical fundamentals, ensuring my solutions are user-centered, scalable, and built with clean engineering practices. My experience across the full development lifecycle — from ideation and design to implementation and deployment — allows me to adapt quickly and contribute meaningfully to any team.",
+    "I'm a final-year Computer Science undergraduate at Eastern University, Sri Lanka. Over the last two years I've built real applications end-to-end — most recently Premier Retail, a full-stack e-commerce platform with QR-based inventory management and a driver logistics dashboard. I work fastest with React + Node.js on the JavaScript side, and Laravel + MySQL on the PHP side. I'm looking for my first full-time engineering role where I can ship code that real users depend on.",
 };
 
 // ─── Skills ─────────────────────────────────────────────────
@@ -120,13 +123,6 @@ export const projects: Project[] = [
       "A comprehensive route optimization system designed to streamline waste collection operations. Built with intelligent pathfinding algorithms and interactive mapping to improve efficiency and reduce operational costs for municipal waste management.",
     techStack: ["React.js", "Node.js", "MongoDB", "Express.js", "Google Maps API"],
     githubUrl: "https://github.com/Vithu2008-CS/waste-management-system",
-  },
-  {
-    title: "Price Book Calculator",
-    description:
-      "A dynamic pricing calculator application that enables users to compute and manage product pricing with an intuitive interface. Features real-time calculations, product catalog management, and comprehensive pricing analytics.",
-    techStack: ["JavaScript", "HTML5", "CSS3", "PHP", "MySQL"],
-    githubUrl: "https://github.com/Vithu2008-CS/price-book-calculator",
   },
 ];
 
