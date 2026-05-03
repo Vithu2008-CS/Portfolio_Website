@@ -104,7 +104,7 @@ export default function ContactFooter() {
         <div className="mx-auto max-w-6xl px-6" ref={ref}>
           {/* Section header */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={shouldReduce ? false : { opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
             className="mb-16 text-center"
@@ -127,7 +127,7 @@ export default function ContactFooter() {
           <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {/* Contact Form */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={shouldReduce ? false : { opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
@@ -244,7 +244,7 @@ export default function ContactFooter() {
 
             {/* Contact Links */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={shouldReduce ? false : { opacity: 0, x: 30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="space-y-4"
@@ -255,7 +255,7 @@ export default function ContactFooter() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={shouldReduce ? false : { opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
                   className="group flex items-center gap-4 p-5 rounded-2xl glass hover:glow transition-all duration-500"
@@ -276,7 +276,7 @@ export default function ContactFooter() {
 
               {/* Location card */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={shouldReduce ? false : { opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{
                   duration: 0.5,
@@ -333,6 +333,7 @@ export default function ContactFooter() {
               </a>
               <a
                 href={`mailto:${personalInfo.email}`}
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
                 aria-label="Email"
               >

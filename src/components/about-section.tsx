@@ -42,7 +42,7 @@ export default function AboutSection() {
         <div className="grid md:grid-cols-5 gap-12 items-start">
           {/* About text */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={shouldReduce ? false : { opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="md:col-span-3 space-y-6"
@@ -78,7 +78,7 @@ export default function AboutSection() {
 
           {/* Stats cards */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={shouldReduce ? false : { opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="md:col-span-2 space-y-4"
@@ -86,7 +86,7 @@ export default function AboutSection() {
             {stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
+                initial={shouldReduce ? false : { opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
                 className="group relative p-6 rounded-2xl glass hover:glow transition-all duration-500 cursor-default"

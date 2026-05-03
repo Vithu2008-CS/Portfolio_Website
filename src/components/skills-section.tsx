@@ -53,7 +53,7 @@ export default function SkillsSection() {
             return (
               <motion.div
                 key={category.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={shouldReduce ? false : { opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: catIndex * 0.15 }}
                 className="group relative p-6 sm:p-8 rounded-2xl glass hover:glow transition-all duration-500"
@@ -73,7 +73,7 @@ export default function SkillsSection() {
                   {category.skills.map((skill, skillIndex) => (
                     <motion.div
                       key={skill}
-                      initial={{ opacity: 0, scale: 0.8 }}
+                      initial={shouldReduce ? false : { opacity: 0, scale: 0.8 }}
                       animate={isInView ? { opacity: 1, scale: 1 } : {}}
                       transition={{
                         duration: 0.3,

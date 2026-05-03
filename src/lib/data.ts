@@ -23,6 +23,12 @@ export interface SkillCategory {
   skills: string[];
 }
 
+export interface CaseStudy {
+  problem: string;
+  built: string;
+  learned: string;
+}
+
 export interface Project {
   title: string;
   description: string;
@@ -30,6 +36,7 @@ export interface Project {
   githubUrl: string;
   liveUrl?: string;
   image?: string;
+  caseStudy?: CaseStudy;
 }
 
 export interface Education {
@@ -116,6 +123,14 @@ export const projects: Project[] = [
       "A high-performance, mobile-first e-commerce platform with a premium dark-mode admin dashboard. Features 3D glassmorphism UI, live search auto-suggest, QR code scanning for inventory management, bulk discount engine, and a full driver logistics dashboard.",
     techStack: ["Laravel", "PHP", "MySQL", "Tailwind CSS", "JavaScript", "Vite"],
     githubUrl: "https://github.com/Vithu2008-CS/Premier_Shop",
+    caseStudy: {
+      problem:
+        "[TODO: replace] Describe the real-world problem this project solved — what was broken, slow, or missing before you built it?",
+      built:
+        "[TODO: replace] Explain what you built and the key technical decisions you made — architecture, key features, anything non-obvious.",
+      learned:
+        "[TODO: replace] What did you learn or struggle with? Mention anything you'd do differently if you rebuilt it today.",
+    },
   },
   {
     title: "Waste Collection Route Optimization System",

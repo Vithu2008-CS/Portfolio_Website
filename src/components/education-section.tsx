@@ -62,7 +62,7 @@ export default function EducationSection() {
           {education.map((edu, index) => (
             <motion.div
               key={edu.institution}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+              initial={shouldReduce ? false : { opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               className="group relative"
@@ -106,7 +106,7 @@ export default function EducationSection() {
 
         {/* Coursework toggle */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={shouldReduce ? false : { opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center mt-12"
@@ -133,7 +133,7 @@ export default function EducationSection() {
             height: showCoursework ? "auto" : 0,
             opacity: showCoursework ? 1 : 0,
           }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
+          transition={{ duration: shouldReduce ? 0 : 0.5, ease: "easeInOut" }}
           className="overflow-hidden"
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 max-w-5xl mx-auto">

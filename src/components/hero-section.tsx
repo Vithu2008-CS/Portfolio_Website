@@ -108,7 +108,7 @@ export default function HeroSection() {
           <div className="flex-1 text-center lg:text-left">
             {/* Status badge */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={shouldReduce ? false : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-sm text-muted-foreground mb-6 lg:mb-8"
@@ -119,7 +119,7 @@ export default function HeroSection() {
 
             {/* Name */}
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
+              initial={shouldReduce ? false : { opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight mb-4 lg:mb-6"
@@ -134,7 +134,7 @@ export default function HeroSection() {
 
             {/* Dynamic subtitle */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={shouldReduce ? false : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex items-center justify-center lg:justify-start gap-3 text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-muted-foreground mb-3 lg:mb-4"
@@ -145,7 +145,7 @@ export default function HeroSection() {
 
             {/* Short tagline */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={shouldReduce ? false : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-muted-foreground text-sm sm:text-base lg:text-lg max-w-xl mx-auto lg:mx-0 mb-8 lg:mb-10"
@@ -155,7 +155,7 @@ export default function HeroSection() {
 
             {/* CTA Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={shouldReduce ? false : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
               className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4"
@@ -192,7 +192,7 @@ export default function HeroSection() {
 
       {/* Scroll indicator */}
       <motion.div
-        initial={{ opacity: 0 }}
+        initial={shouldReduce ? false : { opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2"
